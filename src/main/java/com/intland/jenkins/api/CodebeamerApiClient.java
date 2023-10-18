@@ -7,6 +7,7 @@ package com.intland.jenkins.api;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.HashSet;
 
 import org.apache.commons.io.Charsets;
@@ -207,7 +208,7 @@ public class CodebeamerApiClient {
     }
 
     private File createTempFile(String newContent, String oldContent) throws IOException{
-        final File tempFile = File.createTempFile("tmpfile", "csv");
+        final File tempFile = Files.createTempFile("tmpfile", "csv").toFile();
         tempFile.deleteOnExit();
         FileWriter fileWriter = null;
 
